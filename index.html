@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>PC EXPRESS - Sua Loja de Hardware</title>
+    <link href="./assets/images/logo/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="./assets/css/style-prefix.css" rel="stylesheet"/>
+    <link href="./assets/css/style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <style>
+        
+        .banner-content {
+            
+            background: linear-gradient(to right, hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0)); 
+            color: var(--white); 
+            padding: 20px 25px; 
+            border-radius: var(--border-radius-md); 
+        }
+
+        
+        .banner-content .banner-subtitle,
+        .banner-content .banner-title,
+        .banner-content .banner-text {
+            color: var(--white);
+        }
+
+        
+        @media (max-width: 570px) {
+            .banner-content {
+                
+                background: hsla(0, 0%, 0%, 0.6); 
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%; 
+                text-align: center; 
+            }
+        }
+
+        
+        .modal.closed {
+            display: none !important;
+        }
+
+        
+        .mobile-navigation-menu .submenu-category-list {
+            max-height: 0;
+            overflow: hidden;
+            visibility: hidden;
+            transition: max-height 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .mobile-navigation-menu .submenu-category-list.active {
+            max-height: 500px; /* Um valor grande o suficiente para conter todos os itens */
+            visibility: visible;
+        }
+
+        .mobile-navigation-menu .accordion-menu.active + .submenu-category-list {
+            max-height: 500px; /* Garante que o submenu se expanda quando o botão pai está ativo */
+            visibility: visible;
+        }
+        /* ******************************************* */
+    </style>
+</head>
+<body>
+    <div class="overlay" data-overlay=""></div>
+    <div class="modal" data-modal="">
+        <div class="modal-close-overlay" data-modal-overlay=""></div>
+        <div class="modal-content">
+            <button class="modal-close-btn" data-modal-close="">
+                <ion-icon name="close-outline"></ion-icon>
+            </button>
+            <div class="newsletter-img">
+                <img alt="subscribe newsletter" height="400" src="./assets/images/anuncio.png" width="400"/>
+            </div>
+            <div class="newsletter">
+                <form action="#">
+                    <div class="newsletter-header">
+                        <h3 class="newsletter-title">Assine Nossa Newsletter.</h3>
+                        <p class="newsletter-desc">
+                            Assine a <b>PC EXPRESS</b> para receber as últimas novidades e ofertas.
+                        </p>
+                    </div>
+                    <input class="email-field" name="email" placeholder="Seu Email" required="" type="email"/>
+                    <button class="btn-newsletter" type="submit">Assinar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="notification-toast" data-toast="">
+        <button class="toast-close-btn" data-toast-close="">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <div class="toast-banner">
+            <img alt="Produto Novo" height="70" src="https://placehold.co/80x70/E0E0E0/333333?text=PRODUTO" width="80"/>
+        </div>
+        <div class="toast-detail">
+            <p class="toast-message">
+                Alguém acabou de comprar
+            </p>
+            <p class="toast-title">
+                Teclado Gamer
+            </p>
+            <p class="toast-meta">
+                <time datetime="PT2M">2 Minutos</time> atrás
+            </p>
+        </div>
+    </div>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <ul class="header-social-container">
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+                <div class="header-alert-news">
+                    <p>
+                        <b>Frete Grátis</b>
+                        Nesta Semana Acima de R$550!
+                    </p>
+                </div>
+                <div class="header-top-actions">
+                    <select name="currency">
+                        <option value="brl">BRL R$</option>
+                        <option value="usd">USD $</option>
+                        <option value="eur">EUR €</option>
+                    </select>
+                    <select name="language">
+                        <option value="pt-BR">Português</option>
+                        <option value="en-US">English</option>
+                        <option value="es-ES">Español</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a class="header-logo" href="index.html">
+                    <h1 style="font-size: 2.5rem; color: var(--eerie-black);">PC EXPRESS</h1>
+                </a>
+                <div class="header-search-container">
+                    <input class="search-field" name="search" placeholder="Digite o nome do produto..." type="search"/>
+                    <button class="search-btn">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
+                </div>
+                <div class="header-user-actions">
+                    <a class="action-btn" href="login.html">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </a>
+                    <button class="action-btn">
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <span class="count">0</span>
+                    </button>
+                    <button class="action-btn">
+                        <ion-icon name="bag-handle-outline"></ion-icon>
+                        <span class="count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav class="desktop-navigation-menu">
+            <div class="container">
+                <ul class="desktop-menu-category-list">
+                    <li class="menu-category">
+                        <a class="menu-title" href="index.html">Inicio</a>
+                    </li>
+                    <li class="menu-category">
+                        <a class="menu-title" href="#">Nossos Produtos</a>
+                        <div class="dropdown-panel">
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Componentes</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/placa-de-video.html">Placas de Vídeo</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/processadores.html">Processadores</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/memoria-ram.html">Memória RAM</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/placa-mae.html">Placas Mãe</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/armazenamento.html">Armazenamento</a>
+                                </li>
+                            </ul>
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Periféricos e Outros</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/monitores.html">Monitores</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/perifericos.html">Periféricos</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/gabinetes.html">Gabinetes</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/fontes.html">Fontes</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/coolers.html">Coolers</a>
+                                </li>
+                            </ul>
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Computadores Montados</a>
+                                </li>
+                                <li class="panel-list-item">
+                                    <a href="pages/pcs.html">PCs Gamers</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-category">
+                        <a class="menu-title" href="#">Montar seu PC</a>
+                    </li>
+                    <li class="menu-category">
+                        <a class="menu-title" href="#">Comunidade</a>
+                    </li>
+                    <li class="menu-category">
+                        <a class="menu-title" href="#">Avaliações</a>
+                    </li>
+                    <li class="menu-category">
+                        <a class="menu-title" href="#">Promoções</a>
+                    </li>
+                    <li class="menu-category">
+                        <a class="menu-title" href="sobre.html">Sobre Nós</a>
+                    </li>
+                    <li class="menu-category">
+                        <a class="menu-title" href="contato.html">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="mobile-bottom-navigation">
+            <button class="action-btn" data-mobile-menu-open-btn="">
+                <ion-icon name="menu-outline"></ion-icon>
+            </button>
+            <button class="action-btn">
+                <ion-icon name="bag-handle-outline"></ion-icon>
+                <span class="count">0</span>
+            </button>
+            <button class="action-btn">
+                <ion-icon name="home-outline"></ion-icon>
+            </button>
+            <a href="login.html" class="action-btn"> <ion-icon name="person-outline"></ion-icon> </a>
+            <button class="action-btn" data-mobile-menu-open-btn="">
+                <ion-icon name="grid-outline"></ion-icon>
+            </button>
+        </div>
+
+        <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu="">
+            <div class="menu-top">
+                <h2 class="menu-title">Menu</h2>
+                <button class="menu-close-btn" data-mobile-menu-close-btn="">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+
+            <ul class="mobile-menu-category-list">
+                <li class="menu-category">
+                    <a class="menu-title" href="index.html">Início</a>
+                </li>
+
+                <li class="menu-category">
+                    <button class="accordion-menu" data-accordion-btn="">
+                        <p class="menu-title">Nossos produtos</p>
+                        <div>
+                            <ion-icon class="add-icon" name="add-outline"></ion-icon>
+                            <ion-icon class="remove-icon" name="remove-outline"></ion-icon>
+                        </div>
+                    </button>
+
+                    <ul class="submenu-category-list" data-accordion="">
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/placa-de-video.html">Placas de Vídeo</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/processadores.html">Processadores</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/memoria-ram.html">Memória RAM</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/placa-mae.html">Placas Mãe</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/armazenamento.html">Armazenamento</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/monitores.html">Monitores</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/perifericos.html">Periféricos</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/gabinetes.html">Gabinetes</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/fontes.html">Fontes</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/coolers.html">Coolers</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pages/pcs.html">PCs Gamers</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="#">Montar seu PC</a>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="#">Comunidade</a>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="#">Avaliações</a>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="#">Promoções</a>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="sobre.html">Sobre Nós</a>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="contato.html">Contato</a>
+                </li>
+            </ul>
+
+            <div class="menu-bottom">
+                <ul class="menu-category-list">
+                    <li class="menu-category">
+                        <button class="accordion-menu" data-accordion-btn="">
+                            <p class="menu-title">Idioma</p>
+                            <ion-icon class="caret-back" name="caret-back-outline"></ion-icon>
+                        </button>
+
+                        <ul class="submenu-category-list" data-accordion="">
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">Português</a>
+                            </li>
+
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">English</a>
+                            </li>
+
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">Español</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-category">
+                        <button class="accordion-menu" data-accordion-btn="">
+                            <p class="menu-title">Moeda</p>
+                            <ion-icon class="caret-back" name="caret-back-outline"></ion-icon>
+                        </button>
+
+                        <ul class="submenu-category-list" data-accordion="">
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">BRL R$</a>
+                            </li>
+
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">USD $</a>
+                            </li>
+
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">EUR €</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="menu-social-container">
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="banner">
+            <div class="container">
+                <div class="slider-container has-scrollbar">
+                    <div class="slider-item">
+                        <img alt="Monte Seu PC" class="banner-img" src="./assets/images/montarpc.png"/>
+                        <div class="banner-content">
+                            <p class="banner-subtitle">Componentes de Alta Performance</p>
+                            <h2 class="banner-title">MONTE SEU PC DOS SONHOS</h2>
+                            <p class="banner-text">
+                            </p>
+                            <a class="banner-btn" href="#">COMPRE AGORA</a>
+                        </div>
+                    </div>
+                    <div class="slider-item">
+                        <img alt="Melhores Perifericos" class="banner-img" src="./assets/images/bannerperifericos.jpg"/>
+                        <div class="banner-content">
+                            <p class="banner-subtitle">Acessórios Essenciais</p>
+                            <h2 class="banner-title">Os Melhores Periféricos</h2>
+                            <p class="banner-text">
+                                a partir de R$ <b>99</b>.00
+                            </p>
+                            <a class="banner-btn" href="#">Compre Agora</a>
+                        </div>
+                    </div>
+                    <div class="slider-item">
+                        <img alt="Ofertas Imperdiveis" class="banner-img" src="./assets/images/hardwarebanner.jpg"/>
+                        <div class="banner-content">
+                            <p class="banner-subtitle">Oferta Exclusiva</p>
+                            <h2 class="banner-title">Super Promoções em Hardware</h2>
+                            <p class="banner-text">
+                                descontos de até <b>50%</b>
+                            </p>
+                            <a class="banner-btn" href="#">Aproveite</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-container">
+            <div class="container">
+                <div class="sidebar has-scrollbar" data-mobile-menu="">
+                    <div class="sidebar-category">
+                        <div class="sidebar-top">
+                            <h2 class="sidebar-title">Categorias</h2>
+                            <button class="sidebar-close-btn" data-mobile-menu-close-btn="">
+                                <ion-icon name="close-outline"></ion-icon>
+                            </button>
+                        </div>
+                        <ul class="sidebar-menu-category-list">
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/placa-de-video.html"> Placas de Vídeo</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/processadores.html"> Processadores</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/memoria-ram.html"> Memória RAM</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/placa-mae.html"> Placas Mãe</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/perifericos.html"> Periféricos</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/monitores.html"> Monitores</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/armazenamento.html"> Armazenamento</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/gabinetes.html"> Gabinetes</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/fontes.html"> Fontes</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/pcs.html"> PCs Montados</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pages/coolers.html"> Coolers</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-box">
+                    <div class="product-featured">
+                        <h2 class="title">Oferta do Dia</h2>
+                        <div class="showcase-wrapper has-scrollbar">
+                            <div class="showcase-container">
+                                <div class="showcase">
+                                    <div class="showcase-banner">
+                                        <img alt="PC Gamer em Oferta" class="showcase-img" src="./assets/images/products/oferta.png"/>
+                                    </div>
+                                    <div class="showcase-content">
+                                        <div class="showcase-rating">
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star-outline"></ion-icon>
+                                        </div>
+                                        <a href="#">
+                                            <h3 class="showcase-title">PC Gamer PC EXPRESS Essencial</h3>
+                                        </a>
+                                        <p class="showcase-desc">
+                                            Um PC Gamer de entrada com ótimo custo-benefício para seus jogos favoritos.
+                                        </p>
+                                        <div class="price-box">
+                                            <p class="price">R$ 3200.00</p>
+                                            <del>R$ 3500.00</del>
+                                        </div>
+                                        <button class="add-cart-btn">Adicionar ao Carrinho</button>
+                                        <div class="showcase-status">
+                                            <div class="wrapper">
+                                                <p>
+                                                    já vendidos: <b>10</b>
+                                                </p>
+                                                <p>
+                                                    disponível: <b>25</b>
+                                                </p>
+                                            </div>
+                                            <div class="showcase-status-bar"></div>
+                                        </div>
+                                        <div class="countdown-box">
+                                            <p class="countdown-desc">
+                                                Corra! A oferta termina em:
+                                            </p>
+                                            <div class="countdown">
+                                                <div class="countdown-content">
+                                                    <p class="display-number">05</p>
+                                                    <p class="display-text">Dias</p>
+                                                </div>
+                                                <div class="countdown-content">
+                                                    <p class="display-number">12</p>
+                                                    <p class="display-text">Horas</p>
+                                                </div>
+                                                <div class="countdown-content">
+                                                    <p class="display-number">30</p>
+                                                    <p class="display-text">Min</p>
+                                                </div>
+                                                <div class="countdown-content">
+                                                    <p class="display-number">45</p>
+                                                    <p class="display-text">Seg</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-main">
+                        <h2 class="title">Ofertas Relâmpago</h2>
+                        <div class="product-grid">
+                            <div class="showcase">
+                                <div class="showcase-banner">
+                                    <img alt="Placas de Vídeo em Oferta" class="product-img" src="./assets/images/products/placa rtx4090.png" width="300"/>
+                                    <div class="showcase-actions">
+                                        <button class="btn-action"><ion-icon name="heart-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="eye-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="repeat-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="bag-add-outline"></ion-icon></button>
+                                    </div>
+                                </div>
+                                <div class="showcase-content">
+                                    <a class="showcase-category" href="pages/placa-de-video.html">Placa de Vídeo</a>
+                                    <h3><a class="showcase-title" href="pages/placa-de-video.html">NVIDIA GeForce RTX 4090 – 24 GB</a></h3>
+                                    <div class="price-box">
+                                        <p class="price">R$ 2599.00</p><del>R$ 2900.00</del>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase">
+                                <div class="showcase-banner">
+                                    <img alt="Processadores em Oferta" class="product-img" src="./assets/images/products/processador.png" width="300"/>
+                                    <div class="showcase-actions">
+                                        <button class="btn-action"><ion-icon name="heart-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="eye-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="repeat-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="bag-add-outline"></ion-icon></button>
+                                    </div>
+                                </div>
+                                <div class="showcase-content">
+                                    <a class="showcase-category" href="pages/processadores.html">Processador</a>
+                                    <h3><a class="showcase-title" href="pages/processadores.html">AMD Ryzen 5 5600XT, 6-Core, 12-Threads, 3.7GHz</a></h3>
+                                    <div class="price-box">
+                                        <p class="price">R$ 1499.00</p><del>R$ 1700.00</del>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase">
+                                <div class="showcase-banner">
+                                    <img alt="Memória RAM em Oferta" class="product-img" src="./assets/images/products/memoria-ram1.png" width="300"/>
+                                    <div class="showcase-actions">
+                                        <button class="btn-action"><ion-icon name="heart-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="eye-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="repeat-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="bag-add-outline"></ion-icon></button>
+                                    </div>
+                                </div>
+                                <div class="showcase-content">
+                                    <a class="showcase-category" href="pages/memoria-ram.html">Memória RAM</a>
+                                    <h3><a class="showcase-title" href="pages/memoria-ram.html">Memoria Corsair Vengeance DDR5, 16GB</a></h3>
+                                    <div class="price-box">
+                                        <p class="price">R$ 350.00</p><del>R$ 400.00</del>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase">
+                                <div class="showcase-banner">
+                                    <img alt="Placas Mãe em Oferta" class="product-img" src="./assets/images/products/placamae2-produtos.png" width="300"/>
+                                    <div class="showcase-actions">
+                                        <button class="btn-action"><ion-icon name="heart-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="eye-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="repeat-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="bag-add-outline"></ion-icon></button>
+                                    </div>
+                                </div>
+                                <div class="showcase-content">
+                                    <a class="showcase-category" href="pages/placa-mae.html">Placas Mãe</a>
+                                    <h3><a class="showcase-title" href="pages/placa-mae.html">Placa Mae Gigabyte B760</a></h3>
+                                    <div class="price-box">
+                                        <p class="price">R$ 799.00</p><del>R$ 900.00</del>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase">
+                                <div class="showcase-banner">
+                                    <img alt="Periféricos em Oferta" class="product-img" src="./assets/images/products/mouse.png" width="300"/>
+                                    <div class="showcase-actions">
+                                        <button class="btn-action"><ion-icon name="heart-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="eye-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="repeat-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="bag-add-outline"></ion-icon></button>
+                                    </div>
+                                </div>
+                                <div class="showcase-content">
+                                    <a class="showcase-category" href="pages/perifericos.html">Periféricos</a>
+                                    <h3><a class="showcase-title" href="pages/perifericos.html">Mouser Gamer</a></h3>
+                                    <div class="price-box">
+                                        <p class="price">R$ 199.00</p><del>R$ 250.00</del>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase">
+                                <div class="showcase-banner">
+                                    <img alt="Monitores em Oferta" class="product-img" src="./assets/images/products/monitor-1.png" width="300"/>
+                                    <div class="showcase-actions">
+                                        <button class="btn-action"><ion-icon name="heart-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="eye-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="repeat-outline"></ion-icon></button>
+                                        <button class="btn-action"><ion-icon name="bag-add-outline"></ion-icon></button>
+                                    </div>
+                                </div>
+                                <div class="showcase-content">
+                                    <a class="showcase-category" href="pages/monitores.html">Monitor</a>
+                                    <h3><a class="showcase-title" href="pages/monitores.html">Monitor Ultra HD 27" - 4K IPS</a></h3>
+                                    <div class="price-box">
+                                        <p class="price">R$ 1099.00</p><del>R$ 1200.00</del>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <div class="testimonials-box">
+                    <div class="testimonial">
+                        <h2 class="title">Depoimentos</h2>
+                        <div class="testimonial-card">
+                            <img alt="alan doe" class="testimonial-banner" height="80" src="./assets/images/testimonial-1.jpg" width="80"/>
+                            <p class="testimonial-name">Elaine</p>
+                            <p class="testimonial-title">Cliente Satisfeito</p>
+                            <img alt="quotation" class="quotation-img" src="./assets/images/icons/quotes.svg" width="26"/>
+                            <p class="testimonial-desc">
+                                Produtos de qualidade e atendimento excelente! Recomendo a PC EXPRESS.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="cta-container">
+                        <img alt="Ofertas de PC" class="cta-banner" src="./assets/images/montarpc.png"/>
+                        <a class="cta-content" href="#">
+                            <p class="discount">20% de Desconto</p>
+                            <h2 class="cta-title">Linha de PCs Gamers</h2>
+                            <p class="cta-text">A partir de R$ 2500</p>
+                            <button class="cta-btn">Compre Agora</button>
+                        </a>
+                    </div>
+                    <div class="service">
+                        <h2 class="title">Nossos Serviços</h2>
+                        <div class="service-container">
+                            <a class="service-item" href="#">
+                                <div class="service-icon">
+                                    <ion-icon name="boat-outline"></ion-icon>
+                                </div>
+                                <div class="service-content">
+                                    <h3 class="service-title">Entrega Rápida</h3>
+                                    <p class="service-desc">Para todo o Brasil</p>
+                                </div>
+                            </a>
+                            <a class="service-item" href="#">
+                                <div class="service-icon">
+                                    <ion-icon name="rocket-outline"></ion-icon>
+                                </div>
+                                <div class="service-content">
+                                    <h3 class="service-title">Envio Expresso</h3>
+                                    <p class="service-desc">Capitais e Regiões Metropolitanas</p>
+                                </div>
+                            </a>
+                            <a class="service-item" href="#">
+                                <div class="service-icon">
+                                    <ion-icon name="call-outline"></ion-icon>
+                                </div>
+                                <div class="service-content">
+                                    <h3 class="service-title">Suporte Online</h3>
+                                    <p class="service-desc">Horário: 8h - 23h</p>
+                                </div>
+                            </a>
+                            <a class="service-item" href="#">
+                                <div class="service-icon">
+                                    <ion-icon name="arrow-undo-outline"></ion-icon>
+                                </div>
+                                <div class="service-content">
+                                    <h3 class="service-title">Política de Troca</h3>
+                                    <p class="service-desc">Fácil e Gratuita</p>
+                                </div>
+                            </a>
+                            <a class="service-item" href="#">
+                                <div class="service-icon">
+                                    <ion-icon name="ticket-outline"></ion-icon>
+                                </div>
+                                <div class="service-content">
+                                    <h3 class="service-title">Descontos Exclusivos</h3>
+                                    <p class="service-desc">Para Clientes Cadastrados</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blog">
+            <div class="container">
+                <div class="blog-container has-scrollbar">
+                    <div class="blog-card">
+                        <a href="#">
+                            <img alt="Guia Completo para Montar seu PC Gamer" class="blog-banner" src="./assets/images/artigoum.jpg" width="300"/>
+                        </a>
+                        <div class="blog-content">
+                            <a class="blog-category" href="#">Hardware</a>
+                            <a href="#">
+                                <h3 class="blog-title">Guia Completo para Montar seu PC Gamer em 2024.</h3>
+                            </a>
+                            <p class="blog-meta">
+                                Por <cite>Equipe PC EXPRESS</cite> / <time datetime="2024-06-28">Jun 28, 2024</time>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <a href="#">
+                            <img alt="Os Melhores Processadores do Ano" class="blog-banner" src="./assets/images/artigo2.jpg" width="300"/>
+                        </a>
+                        <div class="blog-content">
+                            <a class="blog-category" href="#">Processadores</a>
+                            <h3>
+                                <a class="blog-title" href="#">Top 5 Processadores para Jogos e Produtividade.</a>
+                            </h3>
+                            <p class="blog-meta">
+                                Por <cite>Analista Tech</cite> / <time datetime="2024-06-20">Jun 20, 2024</time>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <a href="#">
+                            <img alt="Diferença entre SSD e HDD" class="blog-banner" src="./assets/images/artigotres.jpg" width="300"/>
+                        </a>
+                        <div class="blog-content">
+                            <a class="blog-category" href="#">Armazenamento</a>
+                            <h3>
+                                <a class="blog-title" href="#">SSD vs. HDD: Qual o Melhor para o Seu PC?</a>
+                            </h3>
+                            <p class="blog-meta">
+                                Por <cite>Redação PCEXPRESS</cite> / <time datetime="2024-06-15">Jun 15, 2024</time>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <a href="#">
+                            <img alt="Melhores Placas de Vídeo" class="blog-banner" src="./assets/images/artigo4.jpg" width="300"/>
+                        </a>
+                        <div class="blog-content">
+                            <a class="blog-category" href="#">Placas de Vídeo</a>
+                            <h3>
+                                <a class="blog-title" href="#">As Placas de Vídeo Mais Poderosas do Mercado.</a>
+                            </h3>
+                            <p class="blog-meta">
+                                Por <cite>Tech Review</cite> / <time datetime="2024-06-10">Jun 10, 2024</time>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-nav">
+            <div class="container">
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item">
+                        <h2 class="nav-title">Categorias Populares</h2>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="pages/placa-de-video.html">Placas de Vídeo</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="pages/processadores.html">Processadores</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="pages/memoria-ram.html">Memória RAM</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="pages/pcs.html">PCs Montados</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="pages/monitores.html">Monitores</a>
+                    </li>
+                </ul>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item">
+                        <h2 class="nav-title">Produtos</h2>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Novidades</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Mais Vendidos</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Promoções</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="contato.html">Entre em Contato</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Mapa do Site</a>
+                    </li>
+                </ul>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item">
+                        <h2 class="nav-title">Nossa Empresa</h2>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Entrega</a>
+                    </li>
+                    <li class="footer-nav-item"></li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Termos e Condições</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="sobre.html">Sobre Nós</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Pagamento Seguro</a>
+                    </li>
+                </ul>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item">
+                        <h2 class="nav-title">Serviços</h2>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Rastrear Pedido</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Devoluções</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Central de Ajuda</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">FAQ</a>
+                    </li>
+                    <li class="footer-nav-item">
+                        <a class="footer-nav-link" href="#">Suporte Técnico</a>
+                    </li>
+                </ul>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item">
+                        <h2 class="nav-title">Contato</h2>
+                    </li>
+                    <li class="footer-nav-item flex">
+                        <div class="icon-box">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </div>
+                        <address class="content">
+                            Padre Pedro Pinta, 1500 - Venda Nova,
+                            Belo Horizonte- MG
+                        </address>
+                    </li>
+                    <li class="footer-nav-item flex">
+                        <div class="icon-box">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </div>
+                        <a class="footer-nav-link" href="#">(XX) XXXXX-XXXX</a>
+                    </li>
+                    <li class="footer-nav-item flex">
+                        <div class="icon-box">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
+                        <a class="footer-nav-link" href="#">contato@pcexpress.com</a>
+                    </li>
+                </ul>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item">
+                        <h2 class="nav-title">Siga-nos</h2>
+                    </li>
+                    <li>
+                        <ul class="social-link">
+                            <li class="footer-nav-item">
+                                <a class="social-link" href="#">
+                                    <ion-icon name="logo-facebook"></ion-icon>
+                                </a>
+                            </li>
+                            <li class="footer-nav-item">
+                                <a class="social-link" href="#">
+                                    <ion-icon name="logo-twitter"></ion-icon>
+                                </a>
+                            </li>
+                            <li class="footer-nav-item">
+                                <a class="social-link" href="#">
+                                    <ion-icon name="logo-linkedin"></ion-icon>
+                                </a>
+                            </li>
+                            <li class="footer-nav-item">
+                                <a class="social-link" href="#">
+                                    <ion-icon name="logo-instagram"></ion-icon>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <img alt="Métodos de Pagamento" class="payment-img" src="./assets/images/payment.png"/>
+                <p class="copyright">
+                    © 2025 PC Express. Todos os direitos reservados.
+                    <br/>
+                    Telefone: (31) 98765-4321 | R. Padre Pedro Pinta, 1500 - Venda Nova, Belo Horizonte- MG
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        'use strict';
+
+        // modal variables
+        const modal = document.querySelector('[data-modal]');
+        const modalCloseBtn = document.querySelector('[data-modal-close]');
+        const modalCloseOverlay = document.querySelector('[data-modal-overlay]');
+
+        // modal function
+        const modalCloseFunc = function () { modal.classList.add('closed') }
+
+        // modal eventListener
+        modalCloseOverlay?.addEventListener('click', modalCloseFunc);
+        modalCloseBtn?.addEventListener('click', modalCloseFunc);
+
+        // notification toast variables
+        const notificationToast = document.querySelector('[data-toast]');
+        const toastCloseBtn = document.querySelector('[data-toast-close]');
+
+        toastCloseBtn?.addEventListener('click', function () {
+            notificationToast.classList.add('closed');
+        });
+
+        // mobile menu variables
+        const mobileMenuOpenBtn = document.querySelectorAll('[data-mobile-menu-open-btn]');
+        const mobileMenu = document.querySelectorAll('[data-mobile-menu]');
+        const mobileMenuCloseBtn = document.querySelectorAll('[data-mobile-menu-close-btn]');
+        const overlay = document.querySelector('[data-overlay]');
+
+        for (let i = 0; i < mobileMenuOpenBtn.length; i++) {
+            const mobileMenuCloseFunc = function () {
+                mobileMenu[i].classList.remove('active');
+                overlay.classList.remove('active');
+            }
+
+            mobileMenuOpenBtn[i].addEventListener('click', function () {
+                mobileMenu[i].classList.add('active');
+                overlay.classList.add('active');
+            });
+
+            mobileMenuCloseBtn[i]?.addEventListener('click', mobileMenuCloseFunc);
+            overlay?.addEventListener('click', mobileMenuCloseFunc);
+        }
+
+        // accordion variables
+        const accordionBtn = document.querySelectorAll('[data-accordion-btn]');
+
+        for (let i = 0; i < accordionBtn.length; i++) {
+            accordionBtn[i].addEventListener('click', function () {
+                const submenu = this.nextElementSibling;
+                const isActive = submenu.classList.contains('active');
+
+                const parentUl = this.closest('ul');
+                if (parentUl) {
+                    const activeMenus = parentUl.querySelectorAll('.submenu-category-list.active');
+                    for (let j = 0; j < activeMenus.length; j++) {
+                        if (activeMenus[j] !== submenu) {
+                            activeMenus[j].classList.remove('active');
+                            const siblingBtn = activeMenus[j].previousElementSibling;
+                            if (siblingBtn && siblingBtn.classList.contains('accordion-menu')) {
+                                siblingBtn.classList.remove('active');
+                            }
+                        }
+                    }
+                }
+
+                submenu.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

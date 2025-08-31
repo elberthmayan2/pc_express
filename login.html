@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pc Express - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes fadeInModalLogin {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-modal-box {
+            animation: fadeInModalLogin 0.3s ease-out;
+        }
+        .message-area.error {
+            color: #b91c1c;
+            background-color: #fef2f2;
+            border-color: #fecaca;
+            font-weight: 500;
+            display: block;
+        }
+        .message-area.success {
+            color: #166534;
+            background-color: #f0fdf4;
+            border-color: #dcfce7;
+            font-weight: 500;
+            display: block;
+        }
+        .password-input-container {
+            position: relative;
+            width: 100%;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.5);
+            transition: color 0.2s ease;
+        }
+        .toggle-password:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .btn-google {
+            background-color: #c73737;
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        .btn-google:hover {
+            background-color: #ff6b6b;
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .btn-google .fa-google {
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-950 to-gray-900">
+
+    <div class="relative bg-white bg-opacity-10 backdrop-blur-md p-8 sm:p-10 rounded-2xl border-2 border-blue-500 border-opacity-40 shadow-2xl shadow-blue-500/30 w-full max-w-lg text-center text-white">
+        <h1 id="mainHeading" class="text-4xl font-semibold mb-4">Login</h1>
+        <p id="loginGreeting" class="mb-8 text-gray-200 text-lg">Que bom ter você de volta à Pc Express!</p>
+
+        <div id="loginFormSection" class="form-section">
+            <form id="simpleLoginForm" class="login-form" novalidate>
+                <div class="mb-5 text-left">
+                    <label for="username" class="block mb-2 font-medium text-gray-100 text-base">Usuário:</label>
+                    <input type="text" id="username" name="username" placeholder="Digite seu usuário" required
+                           class="w-full px-5 py-3 bg-white bg-opacity-15 border border-white border-opacity-30 rounded-full text-lg text-white placeholder-gray-300 focus:border-white focus:bg-opacity-25 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                </div>
+                <div class="mb-5 text-left">
+                    <label for="password" class="block mb-2 font-medium text-gray-100 text-base">Senha:</label>
+                    <div class="password-input-container">
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required
+                               class="w-full px-5 py-3 bg-white bg-opacity-15 border border-white border-opacity-30 rounded-full text-lg text-white placeholder-gray-300 focus:border-white focus:bg-opacity-25 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 pr-12">
+                        <i class="fa-solid fa-eye toggle-password" data-target="password"></i>
+                    </div>
+                </div>
+                <button type="submit"
+                        class="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-full text-xl font-bold cursor-pointer transition-all duration-300 hover:from-blue-700 hover:to-blue-900 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
+                    Entrar
+                </button>
+                <button type="button" id="googleSignInBtn" class="btn-google w-full">
+                    <i class="fa-brands fa-google"></i>
+                    Entrar com Google
+                </button>
+            </form>
+            <div id="loginMessageArea" class="message-area mt-4 text-sm min-h-6 leading-relaxed p-3 rounded-lg border border-transparent text-center hidden" aria-live="polite"></div>
+        </div>
+
+        <div id="forgotPasswordSection" class="form-section hidden">
+            <a href="#" id="topLeftBackFromForgot" class="absolute top-6 left-6 text-white no-underline z-10 p-2 inline-flex items-center justify-center rounded-full transition-all duration-200 ease-in-out hover:text-gray-200 hover:bg-white hover:bg-opacity-10" title="Voltar para o Login">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7 fill-current"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"/></svg>
+            </a>
+            <p class="text-gray-200 mb-6 text-lg">Insira seu e-mail para redefinir sua senha.</p>
+            <form id="forgotPasswordForm" class="forgot-password-form" novalidate>
+                <div class="mb-5 text-left">
+                    <label for="resetEmail" class="block mb-2 font-medium text-gray-100 text-base">E-mail:</label>
+                    <input type="email" id="resetEmail" name="resetEmail" placeholder="Digite seu e-mail" required
+                           class="w-full px-5 py-3 bg-white bg-opacity-15 border border-white border-opacity-30 rounded-full text-lg text-white placeholder-gray-300 focus:border-white focus:bg-opacity-25 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                </div>
+                <button type="submit"
+                        class="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-full text-xl font-bold cursor-pointer transition-all duration-300 hover:from-blue-700 hover:to-blue-900 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
+                    Enviar Link de Redefinição
+                </button>
+            </form>
+            <div id="forgotPasswordMessageArea" class="message-area mt-4 text-sm min-h-6 leading-relaxed p-3 rounded-lg border border-transparent text-center hidden" aria-live="polite"></div>
+            <a href="#" id="backToLoginLink" class="back-link block mt-5 text-gray-200 no-underline text-base hover:underline hover:text-white hidden">Voltar para o Login</a>
+        </div>
+
+        <div id="createAccountSection" class="form-section hidden">
+            <a href="#" id="topLeftBackFromCreate" class="absolute top-6 left-6 text-white no-underline z-10 p-2 inline-flex items-center justify-center rounded-full transition-all duration-200 ease-in-out hover:text-gray-200 hover:bg-white hover:bg-opacity-10" title="Voltar para o Login">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7 fill-current"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"/></svg>
+            </a>
+            <p class="text-gray-200 mb-6 text-lg">Preencha os dados abaixo para criar sua conta.</p>
+            <form id="createAccountForm" class="login-form" novalidate>
+                <div class="mb-5 text-left">
+                    <label for="createName" class="block mb-2 font-medium text-gray-100 text-base">Nome Completo:</label>
+                    <input type="text" id="createName" name="createName" required
+                           class="w-full px-5 py-3 bg-white bg-opacity-15 border border-white border-opacity-30 rounded-full text-lg text-white placeholder-gray-300 focus:border-white focus:bg-opacity-25 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                </div>
+                <div class="mb-5 text-left">
+                    <label for="createEmail" class="block mb-2 font-medium text-gray-100 text-base">E-mail:</label>
+                    <input type="email" id="createEmail" name="createEmail" required
+                           class="w-full px-5 py-3 bg-white bg-opacity-15 border border-white border-opacity-30 rounded-full text-lg text-white placeholder-gray-300 focus:border-white focus:bg-opacity-25 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                </div>
+                <div class="mb-5 text-left">
+                    <label for="createPassword" class="block mb-2 font-medium text-gray-100 text-base">Senha:</label>
+                    <div class="password-input-container">
+                        <input type="password" id="createPassword" name="createPassword" required
+                               class="w-full px-5 py-3 bg-white bg-opacity-15 border border-white border-opacity-30 rounded-full text-lg text-white placeholder-gray-300 focus:border-white focus:bg-opacity-25 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 pr-12">
+                        <i class="fa-solid fa-eye toggle-password" data-target="createPassword"></i>
+                    </div>
+                </div>
+                <div class="mb-5 text-left">
+                    <label for="confirmPassword" class="block mb-2 font-medium text-gray-100 text-base">Confirmar Senha:</label>
+                    <div class="password-input-container">
+                        <input type="password" id="confirmPassword" name="confirmPassword" required
+                               class="w-full px-5 py-3 bg-white bg-opacity-15 border border-white border-opacity-30 rounded-full text-lg text-white placeholder-gray-300 focus:border-white focus:bg-opacity-25 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 pr-12">
+                        <i class="fa-solid fa-eye toggle-password" data-target="confirmPassword"></i>
+                    </div>
+                </div>
+                <button type="submit"
+                        class="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-full text-xl font-bold cursor-pointer transition-all duration-300 hover:from-blue-700 hover:to-blue-900 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
+                    Criar Conta
+                </button>
+            </form>
+            <div id="createAccountMessageArea" class="message-area mt-4 text-sm min-h-6 leading-relaxed p-3 rounded-lg border border-transparent text-center hidden" aria-live="polite"></div>
+            <a href="#" id="backToLoginFromCreateLink" class="back-link block mt-5 text-gray-200 no-underline text-base hover:underline hover:text-white">Já tem uma conta? Entrar</a>
+        </div>
+
+        <div id="formLinks" class="extra-links mt-6 text-sm flex justify-center">
+            <a href="#" id="forgotPasswordLink" class="text-gray-200 no-underline mx-2 hover:underline hover:text-white">Esqueci a senha?</a>
+            <span class="text-white text-opacity-50 mx-1">|</span>
+            <a href="#" id="createAccountLink" class="text-gray-200 no-underline mx-2 hover:underline hover:text-white">Criar conta</a>
+        </div>
+    </div>
+
+    <div id="customAlertOverlay" class="custom-modal-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 hidden">
+        <div id="customAlertBox" class="custom-modal-box bg-white p-8 rounded-xl shadow-2xl text-center w-auto max-w-sm min-w-xs">
+            <p id="customAlertMessage" class="text-lg text-gray-800 mb-6 leading-relaxed">Mensagem de Alerta!</p>
+            <div class="custom-modal-buttons flex justify-center gap-4">
+                <button id="customAlertOkButton" class="btn-modal-ok py-3 px-6 border-none rounded-lg text-base font-semibold cursor-pointer transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg bg-blue-600 text-white min-w-28">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="customConfirmOverlay" class="custom-modal-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 hidden">
+        <div id="customConfirmBox" class="custom-modal-box bg-white p-8 rounded-xl shadow-2xl text-center w-auto max-w-sm min-w-xs">
+            <p id="customConfirmMessage" class="text-lg text-gray-800 mb-6 leading-relaxed">Você tem certeza?</p>
+            <div class="custom-modal-buttons flex justify-center gap-4 flex-wrap">
+                <button id="customConfirmOkButton" class="btn-modal-ok py-3 px-6 border-none rounded-lg text-base font-semibold cursor-pointer transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg bg-blue-600 text-white min-w-28">OK</button>
+                <button id="customConfirmCancelButton" class="btn-modal-cancel py-3 px-6 border-none rounded-lg text-base font-semibold cursor-pointer transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg bg-gray-100 text-gray-800 border border-gray-200 min-w-28">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showCustomAlert(message) {
+            return new Promise((resolve) => {
+                const overlay = document.getElementById('customAlertOverlay');
+                const messageEl = document.getElementById('customAlertMessage');
+                const okButton = document.getElementById('customAlertOkButton');
+
+                if (!overlay || !messageEl || !okButton) {
+                    console.error("Elementos do modal de alerta personalizado não encontrados. Não é possível exibir o alerta.");
+                    return resolve(false);
+                }
+
+                messageEl.textContent = message;
+                overlay.classList.remove('hidden');
+
+                const newOkButton = okButton.cloneNode(true);
+                okButton.parentNode.replaceChild(newOkButton, okButton);
+
+                let escapeListener;
+
+                const handleClose = () => {
+                    overlay.classList.add('hidden');
+                    document.removeEventListener('keydown', escapeListener);
+                    resolve(true);
+                };
+
+                newOkButton.addEventListener('click', handleClose);
+
+                escapeListener = (event) => {
+                    if (event.key === 'Escape' && !overlay.classList.contains('hidden')) {
+                        handleClose();
+                    }
+                };
+                document.addEventListener('keydown', escapeListener);
+            });
+        }
+
+        function showCustomConfirm(message) {
+            return new Promise((resolve) => {
+                const overlay = document.getElementById('customConfirmOverlay');
+                const messageEl = document.getElementById('customConfirmMessage');
+                const okButton = document.getElementById('customConfirmOkButton');
+                const cancelButton = document.getElementById('customConfirmCancelButton');
+
+                if (!overlay || !messageEl || !okButton || !cancelButton) {
+                    console.error("Elementos do modal de confirmação personalizado não encontrados. Não é possível exibir a confirmação.");
+                    return resolve(false);
+                }
+
+                messageEl.textContent = message;
+                overlay.classList.remove('hidden');
+
+                const newOkButton = okButton.cloneNode(true);
+                okButton.parentNode.replaceChild(newOkButton, okButton);
+                const newCancelButton = cancelButton.cloneNode(true);
+                cancelButton.parentNode.replaceChild(newCancelButton, cancelButton);
+
+                let escapeListener;
+
+                const handleResolve = (value) => {
+                    overlay.classList.add('hidden');
+                    document.removeEventListener('keydown', escapeListener);
+                    resolve(value);
+                };
+
+                newOkButton.addEventListener('click', () => handleResolve(true));
+                newCancelButton.addEventListener('click', () => handleResolve(false));
+
+                escapeListener = (event) => {
+                    if (event.key === 'Escape' && !overlay.classList.contains('hidden')) {
+                        handleResolve(false);
+                    }
+                };
+                document.addEventListener('keydown', escapeListener);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginFormSection = document.getElementById('loginFormSection');
+            const simpleLoginForm = document.getElementById('simpleLoginForm');
+            const loginMessageArea = document.getElementById('loginMessageArea');
+
+            const forgotPasswordSection = document.getElementById('forgotPasswordSection');
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+            const resetEmailInput = document.getElementById('resetEmail');
+            const forgotPasswordMessageArea = document.getElementById('forgotPasswordMessageArea');
+
+            const createAccountSection = document.getElementById('createAccountSection');
+            const createAccountForm = document.getElementById('createAccountForm');
+            const createAccountMessageArea = document.getElementById('createAccountMessageArea');
+
+            const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+            const createAccountLink = document.getElementById('createAccountLink');
+            const backToLoginLink = document.getElementById('backToLoginLink');
+            const backToLoginFromCreateLink = document.getElementById('backToLoginFromCreateLink');
+            const topLeftBackFromForgot = document.getElementById('topLeftBackFromForgot');
+            const topLeftBackFromCreate = document.getElementById('topLeftBackFromCreate');
+
+            const formLinksContainer = document.getElementById('formLinks');
+            const loginGreeting = document.getElementById('loginGreeting');
+            const mainHeading = document.getElementById('mainHeading');
+
+            const googleSignInBtn = document.getElementById('googleSignInBtn');
+
+            function showMessage(areaElement, message, isSuccess = false) {
+                if (!areaElement) return;
+
+                areaElement.textContent = message;
+                areaElement.classList.remove('error', 'success', 'hidden');
+                areaElement.classList.add('message-area');
+
+                if (message) {
+                    areaElement.classList.add(isSuccess ? 'success' : 'error', 'block');
+                } else {
+                    areaElement.classList.add('hidden');
+                }
+            }
+
+            function switchToLoginScreen(event) {
+                if (event) event.preventDefault();
+
+                mainHeading.textContent = 'Login';
+                loginGreeting.textContent = 'Que bom ter você de volta à Pc Express!';
+                loginGreeting.classList.remove('hidden');
+
+                loginFormSection.classList.remove('hidden');
+                forgotPasswordSection.classList.add('hidden');
+                createAccountSection.classList.add('hidden');
+
+                formLinksContainer.classList.remove('hidden');
+                topLeftBackFromForgot.classList.add('hidden');
+                topLeftBackFromCreate.classList.add('hidden');
+                if (backToLoginLink) backToLoginLink.classList.add('hidden');
+
+                showMessage(loginMessageArea, '');
+                showMessage(forgotPasswordMessageArea, '');
+                showMessage(createAccountMessageArea, '');
+                if (simpleLoginForm) simpleLoginForm.reset();
+                if (forgotPasswordForm) forgotPasswordForm.reset();
+                if (createAccountForm) createAccountForm.reset();
+            }
+
+            if (simpleLoginForm) {
+                simpleLoginForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+                    const usernameInput = document.getElementById('username');
+                    const passwordInput = document.getElementById('password');
+
+                    if (!usernameInput.value.trim() || !passwordInput.value.trim()) {
+                        showMessage(loginMessageArea, 'Por favor, preencha usuário e senha.');
+                        return;
+                    }
+
+                    sessionStorage.setItem('usuarioLogadoEcoTechBH', 'true');
+                    showMessage(loginMessageArea, 'Login bem-sucedido! Redirecionando...', true);
+
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    if (submitButton) submitButton.disabled = true;
+
+                    await new Promise(r => setTimeout(r, 1500));
+
+                    const redirectTo = sessionStorage.getItem('redirectAfterLogin');
+                    if (redirectTo) {
+                        sessionStorage.removeItem('redirectAfterLogin');
+                        window.location.href = redirectTo;
+                    } else {
+                        window.location.href = 'index.html';
+                    }
+                });
+            }
+
+            if (forgotPasswordLink) {
+                forgotPasswordLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    mainHeading.textContent = 'Redefinir Senha';
+                    loginGreeting.classList.add('hidden');
+
+                    loginFormSection.classList.add('hidden');
+                    forgotPasswordSection.classList.remove('hidden');
+                    createAccountSection.classList.add('hidden');
+
+                    formLinksContainer.classList.add('hidden');
+                    topLeftBackFromForgot.classList.remove('hidden');
+                    if (resetEmailInput) resetEmailInput.focus();
+                    showMessage(forgotPasswordMessageArea, '');
+                });
+            }
+
+            if (forgotPasswordForm) {
+                forgotPasswordForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+                    const email = resetEmailInput.value;
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if (!email.trim() || !emailRegex.test(email)) {
+                        showMessage(forgotPasswordMessageArea, 'Por favor, insira um endereço de e-mail válido.');
+                        return;
+                    }
+
+                    showMessage(forgotPasswordMessageArea, 'Link de Redefinição enviado com sucesso.', true);
+                    
+                    await new Promise(r => setTimeout(r, 1000));
+
+                    switchToLoginScreen();
+                });
+            }
+
+            if (createAccountLink) {
+                createAccountLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    mainHeading.textContent = 'Criar Conta';
+                    loginGreeting.classList.add('hidden');
+
+                    loginFormSection.classList.add('hidden');
+                    forgotPasswordSection.classList.add('hidden');
+                    createAccountSection.classList.remove('hidden');
+
+                    formLinksContainer.classList.add('hidden');
+                    topLeftBackFromCreate.classList.remove('hidden');
+                    const createNameInput = document.getElementById('createName');
+                    if (createNameInput) createNameInput.focus();
+                    showMessage(createAccountMessageArea, '');
+                });
+            }
+
+            if (createAccountForm) {
+                createAccountForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+                    const name = document.getElementById('createName').value.trim();
+                    const email = document.getElementById('createEmail').value.trim();
+                    const password = document.getElementById('createPassword').value;
+                    const confirmPassword = document.getElementById('confirmPassword').value;
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if (!name || !email || !password || !confirmPassword) {
+                        showMessage(createAccountMessageArea, 'Por favor, preencha todos os campos.');
+                        return;
+                    }
+                    if (!emailRegex.test(email)) {
+                        showMessage(createAccountMessageArea, 'Por favor, insira um endereço de e-mail válido.');
+                        return;
+                    }
+                    if (password !== confirmPassword) {
+                        showMessage(createAccountMessageArea, 'As senhas não coincidem.');
+                        return;
+                    }
+
+                    showMessage(createAccountMessageArea, 'Conta criada com sucesso! Você já pode fazer o login.', true);
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    if (submitButton) submitButton.disabled = true;
+
+                    await new Promise(r => setTimeout(r, 2500));
+
+                    if (submitButton) submitButton.disabled = false;
+                    switchToLoginScreen();
+                });
+            }
+
+            if (topLeftBackFromForgot) topLeftBackFromForgot.addEventListener('click', switchToLoginScreen);
+            if (topLeftBackFromCreate) topLeftBackFromCreate.addEventListener('click', switchToLoginScreen);
+            if (backToLoginLink) backToLoginLink.addEventListener('click', switchToLoginScreen);
+            if (backToLoginFromCreateLink) backToLoginFromCreateLink.addEventListener('click', switchToLoginScreen);
+
+            document.querySelectorAll('.toggle-password').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const targetId = this.dataset.target;
+                    const passwordInput = document.getElementById(targetId);
+
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        this.classList.remove('fa-eye');
+                        this.classList.add('fa-eye-slash');
+                    } else {
+                        passwordInput.type = 'password';
+                        this.classList.remove('fa-eye-slash');
+                        this.classList.add('fa-eye');
+                    }
+                });
+            });
+
+            if (googleSignInBtn) {
+                googleSignInBtn.addEventListener('click', async function() {
+                    showMessage(loginMessageArea, 'Entrando com o Google...', true);
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    sessionStorage.setItem('usuarioLogadoEcoTechBH', 'true');
+                    showMessage(loginMessageArea, 'Login bem-sucedido! Redirecionando...', true);
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

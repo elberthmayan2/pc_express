@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sobre Nós - PC EXPRESS</title>
+<link href="./assets/images/logo/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./assets/css/style-prefix.css" rel="stylesheet"/>
+<link href="./assets/css/style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .about-hero {
+            background-color: var(--cultured);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--cultured);
+            margin-bottom: 30px;
+        }
+
+        .about-hero h1 {
+            font-size: var(--fs-1);
+            color: var(--eerie-black);
+            margin-bottom: 15px;
+        }
+
+        .about-hero p {
+            font-size: var(--fs-5);
+            color: var(--sonic-silver);
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .section-padding {
+            padding: 40px 0;
+        }
+
+        .about-content-section {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 5px 20px hsla(0, 0%, 0%, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .about-content-section h2 {
+            font-size: var(--fs-3);
+            color: var(--eerie-black);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--cultured);
+            padding-bottom: 10px;
+        }
+
+        .about-content-section p {
+            font-size: var(--fs-7);
+            color: var(--sonic-silver);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .about-content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-content-section ul li::before {
+            content: '•';
+            color: var(--salmon-pink);
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .team-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            background-color: var(--cultured);
+            padding: 20px;
+            border-radius: var(--border-radius-md);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid var(--salmon-pink);
+        }
+
+        .team-member h3 {
+            font-size: var(--fs-6);
+            color: var(--eerie-black);
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            font-size: var(--fs-8);
+            color: var(--sonic-silver);
+        }
+
+        .cta-about {
+            text-align: center;
+            padding: 50px 0;
+            background-color: var(--cultured);
+            border-radius: var(--border-radius-md);
+            margin-top: 30px;
+        }
+
+        .cta-about h2 {
+            font-size: var(--fs-2);
+            color: var(--eerie-black);
+            margin-bottom: 20px;
+        }
+
+        .cta-about .banner-btn {
+            background-color: var(--salmon-pink);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: var(--border-radius-sm);
+            text-transform: uppercase;
+            font-weight: var(--weight-600);
+            transition: var(--transition-timing);
+            display: inline-block;
+        }
+
+        .cta-about .banner-btn:hover {
+            background-color: var(--eerie-black);
+        }
+
+        .mobile-navigation-menu .submenu-category-list {
+            max-height: 0;
+            overflow: hidden;
+            visibility: hidden;
+            transition: max-height 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .mobile-navigation-menu .submenu-category-list.active {
+            max-height: 500px;
+            visibility: visible;
+        }
+
+        .mobile-navigation-menu .accordion-menu.active + .submenu-category-list {
+            max-height: 500px;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+<div class="overlay" data-overlay=""></div>
+<div class="modal" data-modal="">
+<div class="modal-close-overlay" data-modal-overlay=""></div>
+<div class="modal-content">
+<button class="modal-close-btn" data-modal-close="">
+<ion-icon name="close-outline"></ion-icon>
+</button>
+<div class="newsletter-img">
+<img alt="subscribe newsletter" height="400" src="./assets/images/anuncio.png" width="400"/>
+</div>
+<div class="newsletter">
+<form action="#">
+<div class="newsletter-header">
+<h3 class="newsletter-title">Assine Nossa Newsletter.</h3>
+<p class="newsletter-desc">
+                            Assine a <b>PC EXPRESS</b> para receber as últimas novidades e ofertas.
+                        </p>
+</div>
+<input class="email-field" name="email" placeholder="Seu Email" required="" type="email"/>
+<button class="btn-newsletter" type="submit">Assinar</button>
+</form>
+</div>
+</div>
+</div>
+<div class="notification-toast" data-toast="">
+<button class="toast-close-btn" data-toast-close="">
+<ion-icon name="close-outline"></ion-icon>
+</button>
+<div class="toast-banner">
+<img alt="Produto Novo" height="70" src="https://placehold.co/80x70/E0E0E0/333333?text=PRODUTO" width="80"/>
+</div>
+<div class="toast-detail">
+<p class="toast-message">Alguém acabou de comprar</p>
+<p class="toast-title">Nome do Produto Novo</p>
+<p class="toast-meta">
+<time datetime="PT2M">2 Minutos</time> atrás
+            </p>
+</div>
+</div>
+<header>
+<div class="header-top">
+<div class="container">
+<ul class="header-social-container">
+<li>
+<a class="social-link" href="#">
+<ion-icon name="logo-facebook"></ion-icon>
+</a>
+</li>
+<li>
+<a class="social-link" href="#">
+<ion-icon name="logo-twitter"></ion-icon>
+</a>
+</li>
+<li>
+<a class="social-link" href="#">
+<ion-icon name="logo-instagram"></ion-icon>
+</a>
+</li>
+<li>
+<a class="social-link" href="#">
+<ion-icon name="logo-linkedin"></ion-icon>
+</a>
+</li>
+</ul>
+<div class="header-alert-news">
+<p>
+<b>Frete Grátis</b> Nesta Semana Acima de R$550!
+                    </p>
+</div>
+<div class="header-top-actions">
+<select name="currency">
+<option value="brl">BRL R$</option>
+<option value="usd">USD $</option>
+<option value="eur">EUR €</option>
+</select>
+<select name="language">
+<option value="pt-BR">Português</option>
+<option value="en-US">English</option>
+<option value="es-ES">Español</option>
+</select>
+</div>
+</div>
+</div>
+<div class="header-main">
+<div class="container">
+<a class="header-logo" href="index.html">
+<h1 style="font-size: 2.5rem; color: var(--eerie-black);">PC EXPRESS</h1>
+</a>
+<div class="header-search-container">
+<input class="search-field" name="search" placeholder="Digite o nome do produto..." type="search"/>
+<button class="search-btn">
+<ion-icon name="search-outline"></ion-icon>
+</button>
+</div>
+<div class="header-user-actions">
+<a class="action-btn" href="login.html">
+<ion-icon name="person-outline"></ion-icon>
+</a>
+<button class="action-btn">
+<ion-icon name="heart-outline"></ion-icon>
+<span class="count">0</span>
+</button>
+<button class="action-btn">
+<ion-icon name="bag-handle-outline"></ion-icon>
+<span class="count">0</span>
+</button>
+</div>
+</div>
+</div>
+<nav class="desktop-navigation-menu">
+<div class="container">
+<ul class="desktop-menu-category-list">
+<li class="menu-category">
+<a class="menu-title" href="index.html">Início</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="#">Nossos Produtos</a>
+<div class="dropdown-panel">
+<ul class="dropdown-panel-list">
+<li class="panel-list-item">
+<a href="pages/placa-de-video.html">Placas de Vídeo</a>
+</li>
+<li class="panel-list-item">
+<a href="pages/processadores.html">Processadores</a>
+</li>
+<li class="panel-list-item">
+<a href="pages/memoria-ram.html">Memória RAM</a>
+</li>
+<li class="panel-list-item">
+<a href="pages/placa-mae.html">Placas Mãe</a>
+</li>
+<li class="panel-list-item">
+<a href="pages/armazenamento.html">Armazenamento</a>
+</li>
+</ul>
+<ul class="dropdown-panel-list">
+<li class="panel-list-item">
+<a href="pages/monitores.html">Monitores</a>
+</li>
+<li class="panel-list-item">
+<a href="pages/perifericos.html">Periféricos</a>
+</li>
+<li class="panel-list-item">
+<a href="pages/gabinetes.html">Gabinetes</a>
+</li>
+<li class="panel-list-item">
+<a href="pages/fontes.html">Fontes</a>
+</li>
+<li class="panel-list-item">
+<a href="pages/coolers.html">Coolers</a>
+</li>
+</ul>
+<ul class="dropdown-panel-list">
+<li class="panel-list-item">
+<a href="pages/pcs.html">PCs Gamers</a>
+</li>
+</ul>
+</div>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="#">Montar seu PC</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="#">Comunidade</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="#">Avaliações</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="#">Promoções</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="sobre.html">Sobre Nós</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="contato.html">Contato</a>
+</li>
+</ul>
+</div>
+</nav>
+<div class="mobile-bottom-navigation">
+<button class="action-btn" data-mobile-menu-open-btn="">
+<ion-icon name="menu-outline"></ion-icon>
+</button>
+<button class="action-btn">
+<ion-icon name="bag-handle-outline"></ion-icon>
+<span class="count">0</span>
+</button>
+<button class="action-btn">
+ <a href="index.html" class="action-btn">
+    <ion-icon name="home-outline"></ion-icon></a>
+ </button>
+<a href="login.html" class="action-btn">
+<ion-icon name="person-outline"></ion-icon>
+</a>
+<button class="action-btn" data-mobile-menu-open-btn="">
+<ion-icon name="grid-outline"></ion-icon>
+</button>
+</div>
+<nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu="">
+<div class="menu-top">
+<h2 class="menu-title">Menu</h2>
+<button class="menu-close-btn" data-mobile-menu-close-btn="">
+<ion-icon name="close-outline"></ion-icon>
+</button>
+</div>
+<ul class="mobile-menu-category-list">
+<li class="menu-category">
+<a class="menu-title" href="index.html">Início</a>
+</li>
+<li class="menu-category">
+<button class="accordion-menu" data-accordion-btn="">
+<p class="menu-title">Nossos produtos</p>
+<div>
+<ion-icon class="add-icon" name="add-outline"></ion-icon>
+<ion-icon class="remove-icon" name="remove-outline"></ion-icon>
+</div>
+</button>
+<ul class="submenu-category-list" data-accordion="">
+<li class="submenu-category">
+<a class="submenu-title" href="pages/placa-de-video.html">Placas de Vídeo</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="pages/processadores.html">Processadores</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="pages/memoria-ram.html">Memória RAM</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="pages/placa-mae.html">Placas Mãe</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="pages/armazenamento.html">Armazenamento</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="pages/monitores.html">Monitores</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="pages/perifericos.html">Periféricos</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="pages/gabinetes.html">Gabinetes</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="pages/fontes.html">Fontes</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="pages/coolers.html">Coolers</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="pages/pcs.html">PCs Gamers</a>
+</li>
+</ul>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="#">Montar seu PC</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="#">Comunidade</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="#">Avaliações</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="#">Promoções</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="sobre.html">Sobre Nós</a>
+</li>
+<li class="menu-category">
+<a class="menu-title" href="contato.html">Contato</a>
+</li>
+</ul>
+<div class="menu-bottom">
+<ul class="menu-category-list">
+<li class="menu-category">
+<button class="accordion-menu" data-accordion-btn="">
+<p class="menu-title">Idioma</p>
+<ion-icon class="caret-back" name="caret-back-outline"></ion-icon>
+</button>
+<ul class="submenu-category-list" data-accordion="">
+<li class="submenu-category">
+<a class="submenu-title" href="#">Português</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="#">English</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="#">Español</a>
+</li>
+</ul>
+</li>
+<li class="menu-category">
+<button class="accordion-menu" data-accordion-btn="">
+<p class="menu-title">Moeda</p>
+<ion-icon class="caret-back" name="caret-back-outline"></ion-icon>
+</button>
+<ul class="submenu-category-list" data-accordion="">
+<li class="submenu-category">
+<a class="submenu-title" href="#">BRL R$</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="#">USD $</a>
+</li>
+<li class="submenu-category">
+<a class="submenu-title" href="#">EUR €</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="menu-social-container">
+<li>
+<a class="social-link" href="#">
+<ion-icon name="logo-facebook"></ion-icon>
+</a>
+</li>
+<li>
+<a class="social-link" href="#">
+<ion-icon name="logo-twitter"></ion-icon>
+</a>
+</li>
+<li>
+<a class="social-link" href="#">
+<ion-icon name="logo-linkedin"></ion-icon>
+</a>
+</li>
+<li>
+<a class="social-link" href="#">
+<ion-icon name="logo-instagram"></ion-icon>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<main>
+<div class="about-hero">
+<div class="container">
+<h1>Sobre Nós</h1>
+<p>
+                    Conheça a História da PC EXPRESS: Desde a paixão por tecnologia até a construção do seu setup ideal, 
+                    a PC EXPRESS está aqui para você.
+                </p>
+</div>
+</div>
+<div class="container section-padding">
+<div class="about-content-section">
+<h2>Nossa História</h2>
+<p>
+                    A PC EXPRESS nasceu do sonho de dois entusiastas de hardware que desejavam criar um espaço onde a paixão 
+                    por computadores de alta performance pudesse ser compartilhada. Fundada em 2025, em Belo Horizonte, Minas Gerais, 
+                    nossa jornada começou com o compromisso de oferecer não apenas produtos de qualidade, mas também conhecimento 
+                    e suporte para que cada cliente construísse o setup perfeito para suas necessidades, seja para jogos, 
+                    trabalho ou criação de conteúdo. Crescemos impulsionados pela comunidade e pela busca incessante por inovação, 
+                    sempre priorizando a transparência e a satisfação do cliente.
+                </p>
+</div>
+<div class="about-content-section">
+<h2>Nossa Missão</h2>
+<p>
+                    Democratizar o acesso a componentes de alta performance e computadores montados, proporcionando 
+                    uma experiência de compra transparente, informativa e que inspire a paixão pela tecnologia.
+                </p>
+</div>
+<div class="about-content-section">
+<h2>Nosso Objetivo</h2>
+<p>
+                    Ser a principal referência em hardware e soluções de PCs no Brasil, reconhecida pela excelência 
+                    no atendimento, inovação e pelo impacto positivo na comunidade gamer.
+                </p>
+</div>
+<div class="about-content-section">
+<h2>Nossos Valores</h2>
+<ul>
+<li><strong>Qualidade:</strong>Oferecer produtos de alto padrão e desempenho garantido.</li>
+<li><strong>Inovação:</strong>Estar sempre atualizado com as últimas tendências e tecnologias do mercado.</li>
+<li><strong>Transparência:</strong>Manter uma comunicação clara e honesta em todas as nossas interações.</li>
+<li><strong>Comprometimento:</strong>Garantir a satisfação total em cada compra e em cada serviço prestado.</li>
+<li><strong>Paixão:</strong> Amamos o que fazemos e queremos compartilhar essa paixão pela tecnologia com vocês.</li>
+</ul>
+</div>
+<div class="about-content-section">
+<h2>Por Que Escolher a PC EXPRESS?</h2>
+<ul>
+<li><strong>Variedade Exclusiva:</strong> Catálogo diversificado com as melhores marcas.</li>
+<li><strong>Preços Competitivos:</strong> As melhores ofertas do mercado.</li>
+<li><strong>Suporte Técnico Especializado:</strong> Ajuda para montar seu PC.</li>
+<li><strong>Entrega Rápida e Segura:</strong> Seu produto chega em perfeitas condições.</li>
+<li><strong>Comunidade Ativa:</strong> Participe de eventos, fóruns e muito mais.</li>
+</ul>
+</div>
+<div class="about-content-section">
+<h2>Nossa Equipe</h2>
+<div class="team-section">
+<div class="team-member">
+<img alt="Fundador 1" src="./assets/images/homem.jpeg"/>
+<h3>João Silva</h3>
+<p>Co-Fundador &amp; CEO</p>
+</div>
+<div class="team-member">
+<img alt="Fundador 2" src="./assets/images/mulher1.jpg"/>
+<h3>Maria Oliveira</h3>
+<p>Co-Fundadora &amp; CTO</p>
+</div>
+<div class="team-member">
+<img alt="Gerente de Vendas" src="./assets/images/homem2.jpg"/>
+<h3>Carlos Souza</h3>
+<p>Gerente de Vendas</p>
+</div>
+<div class="team-member">
+<img alt="Suporte Técnico" src="./assets/images/mulher2.jpg"/>
+<h3>Ana Costa</h3>
+<p>Suporte Técnico Sênior</p>
+</div>
+</div>
+</div>
+<div class="cta-about">
+<h2>Pronto para  montar seu próximo PC?</h2>
+<a class="banner-btn" href="index.html">Explore Nossos Produtos</a>
+</div>
+</div>
+</main>
+<footer>
+<div class="footer-nav">
+<div class="container">
+<ul class="footer-nav-list">
+<li class="footer-nav-item">
+<h2 class="nav-title">Categorias Populares</h2>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="pages/placa-de-video.html">Placas de Vídeo</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="pages/processadores.html">Processadores</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="pages/memoria-ram.html">Memória RAM</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="pages/pcs.html">PCs Montados</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="pages/monitores.html">Monitores</a>
+</li>
+</ul>
+<ul class="footer-nav-list">
+<li class="footer-nav-item">
+<h2 class="nav-title">Produtos</h2>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Novidades</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Mais Vendidos</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Promoções</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="contato.html">Entre em Contato</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Mapa do Site</a>
+</li>
+</ul>
+<ul class="footer-nav-list">
+<li class="footer-nav-item">
+<h2 class="nav-title">Nossa Empresa</h2>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Entrega</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Termos e Condições</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="sobre.html">Sobre Nós</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Pagamento Seguro</a>
+</li>
+</ul>
+<ul class="footer-nav-list">
+<li class="footer-nav-item">
+<h2 class="nav-title">Serviços</h2>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Rastrear Pedido</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Devoluções</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Central de Ajuda</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">FAQ</a>
+</li>
+<li class="footer-nav-item">
+<a class="footer-nav-link" href="#">Suporte Técnico</a>
+</li>
+</ul>
+<ul class="footer-nav-list">
+<li class="footer-nav-item">
+<h2 class="nav-title">Contato</h2>
+</li>
+<li class="footer-nav-item flex">
+<div class="icon-box">
+<ion-icon name="location-outline"></ion-icon>
+</div>
+<address class="content">
+                            Padre Pedro Pinta, 1500 - Venda Nova, 
+                            Belo Horizonte- MG
+                        </address>
+</li>
+<li class="footer-nav-item flex">
+<div class="icon-box">
+<ion-icon name="call-outline"></ion-icon>
+</div>
+<a class="footer-nav-link" href="#">(XX) XXXXX-XXXX</a>
+</li>
+<li class="footer-nav-item flex">
+<div class="icon-box">
+<ion-icon name="mail-outline"></ion-icon>
+</div>
+<a class="footer-nav-link" href="#">contato@pcexpress.com</a>
+</li>
+</ul>
+<ul class="footer-nav-list">
+<li class="footer-nav-item">
+<h2 class="nav-title">Siga-nos</h2>
+</li>
+<li>
+<ul class="social-link">
+<li class="footer-nav-item">
+<a class="social-link" href="#">
+<ion-icon name="logo-facebook"></ion-icon>
+</a>
+</li>
+<li class="footer-nav-item">
+<a class="social-link" href="#">
+<ion-icon name="logo-twitter"></ion-icon>
+</a>
+</li>
+<li class="footer-nav-item">
+<a class="social-link" href="#">
+<ion-icon name="logo-linkedin"></ion-icon>
+</a>
+</li>
+<li class="footer-nav-item">
+<a class="social-link" href="#">
+<ion-icon name="logo-instagram"></ion-icon>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="container">
+<img alt="Métodos de Pagamento" class="payment-img" src="./assets/images/payment.png"/>
+<p class="copyright">
+                    © 2025 PC Express. Todos os direitos reservados.
+                    <br/>
+                    Telefone: (31) 98765-4321 | R. Padre Pedro Pinta, 1500 - Venda Nova, Belo Horizonte- MG
+                </p>
+</div>
+</div>
+</footer>
+
+<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<script>
+'use strict';
+
+// modal variables
+const modal = document.querySelector('[data-modal]');
+const modalCloseBtn = document.querySelector('[data-modal-close]');
+const modalCloseOverlay = document.querySelector('[data-modal-overlay]');
+
+// modal function
+const modalCloseFunc = function () { modal.classList.add('closed') }
+
+// modal eventListener
+modalCloseOverlay?.addEventListener('click', modalCloseFunc);
+modalCloseBtn?.addEventListener('click', modalCloseFunc);
+
+// notification toast variables
+const notificationToast = document.querySelector('[data-toast]');
+const toastCloseBtn = document.querySelector('[data-toast-close]');
+
+toastCloseBtn?.addEventListener('click', function () {
+    notificationToast.classList.add('closed');
+});
+
+// mobile menu variables
+const mobileMenuOpenBtn = document.querySelectorAll('[data-mobile-menu-open-btn]');
+const mobileMenu = document.querySelectorAll('[data-mobile-menu]');
+const mobileMenuCloseBtn = document.querySelectorAll('[data-mobile-menu-close-btn]');
+const overlay = document.querySelector('[data-overlay]');
+
+for (let i = 0; i < mobileMenuOpenBtn.length; i++) {
+    const mobileMenuCloseFunc = function () {
+        mobileMenu[i].classList.remove('active');
+        overlay.classList.remove('active');
+    }
+
+    mobileMenuOpenBtn[i].addEventListener('click', function () {
+        mobileMenu[i].classList.add('active');
+        overlay.classList.add('active');
+    });
+
+    mobileMenuCloseBtn[i]?.addEventListener('click', mobileMenuCloseFunc);
+    overlay?.addEventListener('click', mobileMenuCloseFunc);
+}
+
+// accordion variables
+const accordionBtn = document.querySelectorAll('[data-accordion-btn]');
+
+for (let i = 0; i < accordionBtn.length; i++) {
+    accordionBtn[i].addEventListener('click', function () {
+        const submenu = this.nextElementSibling;
+        const isActive = submenu.classList.contains('active');
+
+        const parentUl = this.closest('ul');
+        if (parentUl) {
+            const activeMenus = parentUl.querySelectorAll('.submenu-category-list.active');
+            for (let j = 0; j < activeMenus.length; j++) {
+                if (activeMenus[j] !== submenu) {
+                    activeMenus[j].classList.remove('active');
+                    const siblingBtn = activeMenus[j].previousElementSibling;
+                    if (siblingBtn && siblingBtn.classList.contains('accordion-menu')) {
+                        siblingBtn.classList.remove('active');
+                    }
+                }
+            }
+        }
+
+        submenu.classList.toggle('active');
+        this.classList.toggle('active');
+    });
+}
+</script>
+</body>
+</html>

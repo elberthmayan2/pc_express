@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>PC EXPRESS - Placa de Vídeo</title>
+    <link href="../assets/images/logo/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="../assets/css/style-prefix.css" rel="stylesheet"/>
+    <link href="../assets/css/style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        .showcase-banner .product-img.hover {
+            display: none;
+        }
+
+        .showcase-banner:hover .product-img.default {
+            opacity: 1 !important;
+            display: block !important;
+        }
+
+        .modal.closed {
+            display: none !important;
+        }
+
+        .mobile-navigation-menu .submenu-category-list {
+            max-height: 0;
+            overflow: hidden;
+            visibility: hidden;
+            transition: max-height 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .mobile-navigation-menu .submenu-category-list.active {
+            max-height: 500px;
+            visibility: visible;
+        }
+
+        .mobile-navigation-menu .accordion-menu.active + .submenu-category-list {
+            max-height: 500px;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" data-overlay=""></div>
+    <div class="modal" data-modal="">
+        <div class="modal-close-overlay" data-modal-overlay=""></div>
+        <div class="modal-content">
+            <button class="modal-close-btn" data-modal-close="">
+                <ion-icon name="close-outline"></ion-icon>
+            </button>
+            <div class="newsletter-img">
+                <img alt="subscribe newsletter" height="400" src="../assets/images/anuncio.png" width="400"/>
+            </div>
+            <div class="newsletter">
+                <form action="#">
+                    <div class="newsletter-header">
+                        <h3 class="newsletter-title">Assine Nossa Newsletter.</h3>
+                        <p class="newsletter-desc">
+                            Assine a <b>PC EXPRESS</b> para receber as últimas novidades e ofertas.
+                        </p>
+                    </div>
+                    <input class="email-field" name="email" placeholder="Seu Email" required="" type="email"/>
+                    <button class="btn-newsletter" type="submit">Assinar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="notification-toast" data-toast="">
+        <button class="toast-close-btn" data-toast-close="">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <div class="toast-banner">
+            <img alt="Produto Novo" height="70" src="https://placehold.co/80x70/E0E0E0/333333?text=PRODUTO" width="80"/>
+        </div>
+        <div class="toast-detail">
+            <p class="toast-message">
+                Alguém acabou de comprar
+            </p>
+            <p class="toast-title">
+                Teclado Gamer
+            </p>
+            <p class="toast-meta">
+                <time datetime="PT2M">2 Minutos</time> atrás
+            </p>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <ul class="header-social-container">
+                    <li><a class="social-link" href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                    <li><a class="social-link" href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                    <li><a class="social-link" href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    <li><a class="social-link" href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                </ul>
+                <div class="header-alert-news">
+                    <p><b>Frete Grátis</b> Nesta Semana Acima de R$550!</p>
+                </div>
+                <div class="header-top-actions">
+                    <select name="currency"><option value="brl">BRL R$</option><option value="usd">USD $</option><option value="eur">EUR €</option></select>
+                    <select name="language"><option value="pt-BR">Português</option><option value="en-US">English</option><option value="es-ES">Español</option></select>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a class="header-logo" href="../index.html">
+                    <h1 style="font-size: 2.5rem; color: var(--eerie-black);">PC EXPRESS</h1>
+                </a>
+                <div class="header-search-container">
+                    <input class="search-field" name="search" placeholder="Digite o nome do produto..." type="search"/>
+                    <button class="search-btn"><ion-icon name="search-outline"></ion-icon></button>
+                </div>
+                <div class="header-user-actions">
+                    <a href="../login.html" class="action-btn"><ion-icon name="person-outline"></ion-icon></a>
+                    <button class="action-btn"><ion-icon name="heart-outline"></ion-icon><span class="count">0</span></button>
+                    <button class="action-btn"><ion-icon name="bag-handle-outline"></ion-icon><span class="count">0</span></button>
+                </div>
+            </div>
+        </div>
+        <nav class="desktop-navigation-menu">
+            <div class="container">
+                <ul class="desktop-menu-category-list">
+                    <li class="menu-category"><a class="menu-title" href="../index.html">Inicio</a></li>
+                    <li class="menu-category">
+                        <a class="menu-title" href="#">Nossos Produtos</a>
+                        <div class="dropdown-panel">
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title"><a href="#">Componentes</a></li>
+                                <li class="panel-list-item"><a href="placa-de-video.html">Placas de Vídeo</a></li>
+                                <li class="panel-list-item"><a href="processadores.html">Processadores</a></li>
+                                <li class="panel-list-item"><a href="memoria-ram.html">Memória RAM</a></li>
+                                <li class="panel-list-item"><a href="placa-mae.html">Placas Mãe</a></li>
+                                <li class="panel-list-item"><a href="armazenamento.html">Armazenamento</a></li>
+                            </ul>
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title"><a href="#">Periféricos e Outros</a></li>
+                                <li class="panel-list-item"><a href="monitores.html">Monitores</a></li>
+                                <li class="panel-list-item"><a href="perifericos.html">Periféricos</a></li>
+                                <li class="panel-list-item"><a href="gabinetes.html">Gabinetes</a></li>
+                                <li class="panel-list-item"><a href="fontes.html">Fontes</a></li>
+                                <li class="panel-list-item"><a href="coolers.html">Coolers</a></li>
+                            </ul>
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title"><a href="#">Computadores Montados</a></li>
+                                <li class="panel-list-item"><a href="pcs.html">PCs Gamers</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-category"><a class="menu-title" href="#">Montar seu PC</a></li>
+                    <li class="menu-category"><a class="menu-title" href="#">Comunidade</a></li>
+                    <li class="menu-category"><a class="menu-title" href="#">Avaliações</a></li>
+                    <li class="menu-category"><a class="menu-title" href="#">Promoções</a></li>
+                    <li class="menu-category"><a class="menu-title" href="../sobre.html">Sobre Nós</a></li>
+                    <li class="menu-category"><a class="menu-title" href="../contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="mobile-bottom-navigation">
+            <button class="action-btn" data-mobile-menu-open-btn="">
+                <ion-icon name="menu-outline"></ion-icon>
+            </button>
+            <button class="action-btn">
+                <ion-icon name="bag-handle-outline"></ion-icon>
+                <span class="count">0</span>
+            </button>
+            <button class="action-btn">
+              <a href="../index.html" class="action-btn">
+    <ion-icon name="home-outline"></ion-icon></a>
+            </button>
+            <a href="../login.html" class="action-btn">
+                <ion-icon name="person-outline"></ion-icon>
+            </a>
+            <button class="action-btn" data-mobile-menu-open-btn="">
+                <ion-icon name="grid-outline"></ion-icon>
+            </button>
+        </div>
+
+        <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu="">
+            <div class="menu-top">
+                <h2 class="menu-title">Menu</h2>
+                <button class="menu-close-btn" data-mobile-menu-close-btn="">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+
+            <ul class="mobile-menu-category-list">
+                <li class="menu-category">
+                    <a class="menu-title" href="../index.html">Início</a>
+                </li>
+
+                <li class="menu-category">
+                    <button class="accordion-menu" data-accordion-btn="">
+                        <p class="menu-title">Nossos produtos</p>
+                        <div>
+                            <ion-icon class="add-icon" name="add-outline"></ion-icon>
+                            <ion-icon class="remove-icon" name="remove-outline"></ion-icon>
+                        </div>
+                    </button>
+
+                    <ul class="submenu-category-list" data-accordion="">
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="placa-de-video.html">Placas de Vídeo</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="processadores.html">Processadores</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="memoria-ram.html">Memória RAM</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="placa-mae.html">Placas Mãe</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="armazenamento.html">Armazenamento</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="monitores.html">Monitores</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="perifericos.html">Periféricos</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="gabinetes.html">Gabinetes</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="fontes.html">Fontes</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="coolers.html">Coolers</a>
+                        </li>
+
+                        <li class="submenu-category">
+                            <a class="submenu-title" href="pcs.html">PCs Gamers</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="#">Montar seu PC</a>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="#">Comunidade</a>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="#">Avaliações</a>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="#">Promoções</a>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="../sobre.html">Sobre Nós</a>
+                </li>
+
+                <li class="menu-category">
+                    <a class="menu-title" href="../contato.html">Contato</a>
+                </li>
+            </ul>
+
+            <div class="menu-bottom">
+                <ul class="menu-category-list">
+                    <li class="menu-category">
+                        <button class="accordion-menu" data-accordion-btn="">
+                            <p class="menu-title">Idioma</p>
+                            <ion-icon class="caret-back" name="caret-back-outline"></ion-icon>
+                        </button>
+
+                        <ul class="submenu-category-list" data-accordion="">
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">Português</a>
+                            </li>
+
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">English</a>
+                            </li>
+
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">Español</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-category">
+                        <button class="accordion-menu" data-accordion-btn="">
+                            <p class="menu-title">Moeda</p>
+                            <ion-icon class="caret-back" name="caret-back-outline"></ion-icon>
+                        </button>
+
+                        <ul class="submenu-category-list" data-accordion="">
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">BRL R$</a>
+                            </li>
+
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">USD $</a>
+                            </li>
+
+                            <li class="submenu-category">
+                                <a class="submenu-title" href="#">EUR €</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="menu-social-container">
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="social-link" href="#">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="product-container">
+            <div class="container">
+                <div class="sidebar has-scrollbar" data-mobile-menu="">
+                    <div class="sidebar-category">
+                        <div class="sidebar-top">
+                            <h2 class="sidebar-title">Categorias</h2>
+                            <button class="sidebar-close-btn" data-mobile-menu-close-btn=""><ion-icon name="close-outline"></ion-icon></button>
+                        </div>
+                        <ul class="sidebar-menu-category-list">
+                            <li class="sidebar-menu-category"><a class="menu-title" href="placa-de-video.html"> Placas de Vídeo</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="processadores.html"> Processadores</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="memoria-ram.html"> Memória RAM</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="placa-mae.html"> Placas Mãe</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="perifericos.html"> Periféricos</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="monitores.html"> Monitores</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="armazenamento.html"> Armazenamento</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="gabinetes.html"> Gabinetes</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="fontes.html"> Fontes</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="pcs.html"> PCs Montados</a></li>
+                            <li class="sidebar-menu-category"><a class="menu-title" href="coolers.html"> Coolers</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-box">
+                    <h2 class="title">Placa de Video</h2>
+                    <div class="product-grid">
+                        <div class="showcase">
+                            <div class="showcase-banner">
+                                <img alt="Placa de Video Rtx 4090" class="product-img default" src="../assets/images/products/placa rtx4090.png" width="300"/>
+                                <div class="showcase-actions">
+                                    <button class="btn-action"><ion-icon name="heart-outline"></ion-icon></button>
+                                    <button class="btn-action"><ion-icon name="eye-outline"></ion-icon></button>
+                                    <button class="btn-action"><ion-icon name="repeat-outline"></ion-icon></button>
+                                    <button class="btn-action"><ion-icon name="bag-add-outline"></ion-icon></button>
+                                </div>
+                            </div>
+                            <div class="showcase-content">
+                                <a class="showcase-category" href="#">Placa de Video</a>
+                                <h3><a class="showcase-title" href="#">NVIDIA GeForce RTX 4090 – 24 GB</a></h3>
+                                <div class="showcase-rating">
+                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                </div>
+                                <div class="price-box">
+                                    <p class="price">R$ 850.00</p><del>R$ 950.00</del>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="showcase">
+                            <div class="showcase-banner">
+                                <img alt="Placa de Video 4070" class="product-img default" src="../assets/images/products/placa rtx 4070.png" width="300"/>
+                                <p class="showcase-badge angle black">Custo-Benefício</p>
+                                <div class="showcase-actions">
+                                    <button class="btn-action"><ion-icon name="heart-outline"></ion-icon></button>
+                                    <button class="btn-action"><ion-icon name="eye-outline"></ion-icon></button>
+                                    <button class="btn-action"><ion-icon name="repeat-outline"></ion-icon></button>
+                                    <button class="btn-action"><ion-icon name="bag-add-outline"></ion-icon></button>
+                                </div>
+                            </div>
+                            <div class="showcase-content">
+                                <a class="showcase-category" href="#">Placa de Video</a>
+                                <h3><a class="showcase-title" href="#">Gigabyte RTX 4070 Ti Super – 16 GB </a></h3>
+                                <div class="showcase-rating">
+                                    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star-half-outline"></ion-icon><ion-icon name="star-outline"></ion-icon>
+                                </div>
+                                <div class="price-box">
+                                    <p class="price">R$ 320.00</p><del>R$ 380.00</del>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; padding: 40px 0; margin-top: 30px; border-top: 1px solid var(--cultured);">
+                        <h2 style="font-size: var(--fs-3); color: var(--eerie-black); margin-bottom: 10px;">
+                            Em breve, novos produtos chegarão em nossa loja!
+                        </h2>
+                        <p style="color: var(--sonic-silver); font-size: var(--fs-7);">
+                            Fique atento às nossas atualizações e ofertas!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-nav">
+            <div class="container">
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><h2 class="nav-title">Categorias Populares</h2></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="placa-de-video.html">Placas de Vídeo</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="processadores.html">Processadores</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="memoria-ram.html">Memória RAM</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="pcs.html">PCs Montados</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="monitores.html">Monitores</a></li>
+                </ul>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><h2 class="nav-title">Produtos</h2></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Novidades</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Mais Vendidos</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Promoções</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="../contato.html">Entre em Contato</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Mapa do Site</a></li>
+                </ul>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><h2 class="nav-title">Nossa Empresa</h2></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Entrega</a></li>
+                    <li class="footer-nav-item"></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Termos e Condições</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="../sobre.html">Sobre Nós</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Pagamento Seguro</a></li>
+                </ul>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><h2 class="nav-title">Serviços</h2></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Rastrear Pedido</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Devoluções</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Central de Ajuda</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">FAQ</a></li>
+                    <li class="footer-nav-item"><a class="footer-nav-link" href="#">Suporte Técnico</a></li>
+                </ul>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><h2 class="nav-title">Contato</h2></li>
+                    <li class="footer-nav-item flex">
+                        <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
+                        <address class="content">Padre Pedro Pinta, 1500 - Venda Nova, Belo Horizonte- MG</address>
+                    </li>
+                    <li class="footer-nav-item flex">
+                        <div class="icon-box"><ion-icon name="call-outline"></ion-icon></div>
+                        <a class="footer-nav-link" href="#">(XX) XXXXX-XXXX</a>
+                    </li>
+                    <li class="footer-nav-item flex">
+                        <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                        <a class="footer-nav-link" href="#">contato@pcexpress.com</a>
+                    </li>
+                </ul>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><h2 class="nav-title">Siga-nos</h2></li>
+                    <li>
+                        <ul class="social-link">
+                            <li class="footer-nav-item"><a class="social-link" href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                            <li class="footer-nav-item"><a class="social-link" href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                            <li class="footer-nav-item"><a class="social-link" href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                            <li class="footer-nav-item"><a class="social-link" href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <img alt="Métodos de Pagamento" class="payment-img" src="../assets/images/payment.png"/>
+                <p class="copyright">© 2025 PC Express. Todos os direitos reservados.<br/>Telefone: (31) 98765-4321 | R. Padre Pedro Pinta, 1500 - Venda Nova, Belo Horizonte- MG</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
