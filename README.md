@@ -64,13 +64,3 @@ O objetivo é oferecer uma experiência intuitiva para compra de peças e perif�
 
 ---
 
-## 📄 Licença
-
-Este projeto está sob a licença **MIT** – fique à vontade para usar, modificar e distribuir.
-
----
-
-## 👨‍💻 Autor
-
-Projeto desenvolvido por **[Seu Nome]**  
-💼 [LinkedIn](https://www.linkedin.com/) | 🌐 [Portfólio](https://github.com/seu-usuario)
